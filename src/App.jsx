@@ -1,7 +1,9 @@
 // import { useState } from "react";
 // import {getIdMobileLegends} from './utils/fetch'
 
+import { BrowserRouter } from "react-router-dom";
 import IndexPage from "./pages/IndexPage";
+import AppRoute from "./routes";
 
 // const App = () => {
 //   const [getUser, setGetUser] = useState([])
@@ -66,7 +68,9 @@ import IndexPage from "./pages/IndexPage";
 const App = () => {
   return(
     <>
-      <IndexPage />
+      <BrowserRouter>
+        <AppRoute />
+      </BrowserRouter>
     </>
   )
 }
