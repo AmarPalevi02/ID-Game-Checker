@@ -15,7 +15,7 @@ const AppRoute = () => {
                </>
             }
          >
-            {/* <Route path='*' element={<Home />} /> */}
+            <Route path='*' element={<Home />} />
             <Route path='mobile-legends/*' element={<MobileLegendsRoute />} />
          </Route>
       </Routes>

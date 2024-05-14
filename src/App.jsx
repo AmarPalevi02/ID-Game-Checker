@@ -2,7 +2,7 @@
 // import {getIdMobileLegends} from './utils/fetch'
 
 import { BrowserRouter } from "react-router-dom";
-import IndexPage from "./pages/IndexPage";
+// import IndexPage from "./pages/IndexPage";
 import AppRoute from "./routes";
 
 // const App = () => {

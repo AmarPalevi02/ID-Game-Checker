@@ -2,7 +2,7 @@ import React from 'react'
 
 const MobileLegends = () => {
   return (
-    <div className=''>MobileLegends</div>
+    <div className='pt-5'>MobileLegends</div>
   )
 }
 
