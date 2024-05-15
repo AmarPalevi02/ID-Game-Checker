@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 import { AiOutlineMenuFold } from "react-icons/ai";
-import { RiCloseLargeLine } from "react-icons/ri";
 
-import { navItem } from '../consts/navItems'
+import { navItem } from '../../consts/navItems'
+import NavMobile from './NavMobile';
 
 const Navbar = () => {
    const [togle, setTogle] = useState(false)
@@ -31,8 +31,8 @@ const Navbar = () => {
    }, [prevScroll])
 
    return (
-      <nav className='relative w-full z-40 '>
-         <div className={`flex fixed justify-between items-cente w-full py-4 px-4 ${isScroll ? "" : "bg-glass ease-in-out "}`}>
+      <nav className='relative w-full z-50'>
+         <div className={`flex  fixed justify-between items-cente w-full py-4 px-4 ${isScroll ? "" : "bg-glass ease-in-out "}`}>
             <h2 className='text-stone-400 font-bold'>ID Game Checker</h2>
             {togle ? (
                ""
@@ -50,7 +50,7 @@ const Navbar = () => {
                         <li
                            key={i}
                            onClick={() => navigate(`${menu.path}`)}
-                           className='cursor-pointer'
+                           className='cursor-pointer text-md text-semibold text-gray-400'
                         >
                            {menu.menu}
                         </li>
@@ -59,27 +59,7 @@ const Navbar = () => {
                </ul>
             </div>
          </div>
-
-         <div className={`sidebar ${togle ? 'open' : ''} bg-black-gradient`}>
-            <div className="flex justify-end py-4 pr-4">
-               <RiCloseLargeLine
-                  className='text-2xl font-bold text-stone-400 '
-                  onClick={() => setTogle(!togle)}
-               />
-            </div>
-            <ul>
-               {navItem.map((menu, i) => {
-                  return (
-                     <li
-                        key={i}
-                        onClick={() => navigate(`${menu.path}`)}
-                     >
-                        {menu.menu}
-                     </li>
-                  )
-               })}
-            </ul>
-         </div>
+         <NavMobile togle={togle} setTogle={setTogle} navigate={navigate} />
       </nav>
    )
 }
