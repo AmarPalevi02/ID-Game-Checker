@@ -20,7 +20,7 @@ import AppRoute from "./routes";
 //   const handleSelectGame = (e) => {
 //     setSelectGame(e.target.value)
 //   }
-
+// id = 939068384 server = 12715
 //   const gameOptions = [
 //     { label: 'Mobile Legends', value: 'mobile-legends' },
 //     { label: 'Free Fire', value: 'free-fire' },
