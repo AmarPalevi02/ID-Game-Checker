@@ -9,6 +9,7 @@ import HeadPage from '../atoms/HeadPage'
 
 const RootML = () => {
    const [datas, setDatas] = useState([])
+   const [error, setError] = useState(null)
    const [isLoading, setIsloading] = useState(false)
    const [form, setForm] = useState({
       id: '',
@@ -22,12 +23,19 @@ const RootML = () => {
 
    const handleSubmit = async () => {
       setIsloading(true)
+      setError(null);
       try {
          const response = await getIdMobileLegends(form.id, form.server);
-         setDatas(response.data);
-         console.log(datas)
+
+         if (response.error) {
+            setError(response.msg)
+         } else {
+            setDatas(response.data);
+         }
+
       } catch (error) {
          console.error('Error fetching data:', error);
+         setError('An unexpected error occurred.');
       }
       setIsloading(false)
    };
@@ -55,12 +63,17 @@ const RootML = () => {
                   <LoadingEffect />
                </div>
             ) : (
-               Object.keys(datas).length > 0 && (
-                  <ResultUserName>
-                     <p className='text-gray-400'>{datas.game}</p>
-                     <p className='text-gray-400'>{datas.userId}</p>
-                     <p className='text-gray-400'>{datas.username}</p>
-                  </ResultUserName>
+               Object.keys(datas).length > 0 || error ? (
+                  <>
+                     <ResultUserName>
+                        <p className='text-gray-400'>{datas.game}</p>
+                        <p className='text-gray-400'>{datas.userId}</p>
+                        <p className='text-gray-400'>{datas.username}</p>
+                        {error && <p className='text-red-400'>{error}</p>}
+                     </ResultUserName>
+                  </>
+               ) : (
+                  ""
                )
             )}
          </div>

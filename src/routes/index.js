@@ -4,6 +4,7 @@ import Home from '../pages/Home'
 import MobileLegendsRoute from './MobileLegendsRoute'
 import IndexPage from '../pages/IndexPage'
 import PUBGRoute from './PUBGRoute'
+import FfRoute from './FfRoute'
 
 const AppRoute = () => {
    return (
@@ -19,6 +20,7 @@ const AppRoute = () => {
             <Route path='*' element={<Home />} />
             <Route path='mobile-legends/*' element={<MobileLegendsRoute />} />
             <Route path='pubgm/*' element={<PUBGRoute />} />
+            <Route path='free-fire/*' element={<FfRoute />} />
          </Route>
       </Routes>
    )
