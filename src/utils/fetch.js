@@ -58,7 +58,7 @@ export const GetFreeFire = async (id) => {
          throw new Error(URL.data.error)
       }
 
-      return URL
+      return URL.data
    } catch (error) {
       return {
          error: true,

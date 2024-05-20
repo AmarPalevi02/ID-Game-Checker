@@ -1,8 +1,18 @@
 import React from 'react'
+import FormInput from '../atoms/FormInput'
 
-const Form = () => {
+const Form = ({ form, handleOnchange }) => {
    return (
-      <div>Form</div>
+      <div>
+         <FormInput
+            type='text'
+            name='id'
+            value={form.id}
+            onChange={handleOnchange}
+            required
+            label={'ID'}
+         />
+      </div>
    )
 }
 
